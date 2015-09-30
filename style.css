@@ -1,0 +1,139 @@
+*{
+	font-family: Arial;
+	font-size: 12.5px;
+}
+#header{
+	position: relative;
+	text-align: right;
+	text-decoration: none;
+	padding-top: .5px;
+}
+#header li{
+	display: inline-block;
+	list-style: none;
+	padding-right: 15px;
+	vertical-align: middle;
+}
+#header a{
+	text-decoration: none;
+	color: #727272;
+}
+#apps{
+	background-position: -214px -117px;
+	display: block;
+	width:28px;
+	height:28px;
+	border-radius:50%;
+}
+#bell{
+	background-position: -214px -117px;
+	display: block;
+	width: 28px;
+	height: 28px;
+	border-radius:50%;
+}
+#me{
+	background-position: -214px -117px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+#logo {
+	width: 270px;
+	height: 148px;
+	display: block;
+	margin: 160px auto 0px auto;
+}
+#text-box {
+	width: 40%;
+	height: 38px;
+	border: solid 1px #e0dede;
+	margin: 23px auto 0 auto;
+	border-radius: 2px;
+}
+#voice {
+	height: 24px;
+	float: right;
+	padding-top: 7px;
+	padding-right: 4px;
+}
+#searchbar{
+	margin: 20px auto;
+	padding: 160px auto 0 auto;
+	font-size: 13px;
+	font-weight: bold;
+	color:#8e8989;
+	height: 100px;
+	width: 300px;
+}
+div form input{
+	margin-left: 20px;
+	font-size: 15px;
+	color: #727272;
+	border: none;
+	padding: 8px;
+}
+div form input:hover{
+	color: #222;
+}
+div p{
+	margin: 20px auto 20px auto;
+	color: #222;
+	font-weight: normal;
+	text-align: center;
+}
+div p a{
+	text-decoration: none;
+}
+#small_icon{
+	height: 35px;
+	width: 35px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+footer{
+	height: 38px;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: #f2f2f2;
+	border: solid 1px #dcdcdc;
+	
+	text-decoration: none;
+	padding-top: .5px;
+}
+#left_footer{
+	float: left;
+	text-align: left;
+	color: #666666;
+}
+#left_footer li{
+	display: inline-block;
+	list-style: none;
+	text-decoration: none;
+}
+#left_footer a{
+	text-decoration: none;
+	color: #666666;
+	padding-right: 25px;
+	font-size: 12.5px;
+}
+#right_footer{
+	float: right;
+	text-align: right;
+	color: #666666;
+}
+#right_footer li{
+	display: inline-block;
+	list-style: none;
+	text-decoration: none;
+}
+#right_footer a{
+	text-decoration: none;
+	color: #666666;
+	padding-right: 25px;
+	font-size: 12.5px;
+}
