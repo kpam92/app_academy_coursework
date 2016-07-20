@@ -6,7 +6,7 @@ describe Hand do
   let(:cards) {[
           Card.new(2, "Hearts"),
           Card.new(3, "Hearts"),
-          Card.new(7, "Spades"),
+          Card.new(10, "Spades"),
           Card.new(9, "Diamonds"),
           Card.new(7, "Hearts")
     ]
@@ -30,7 +30,7 @@ describe Hand do
       ]
     }
     it "gives the high card" do
-      expect(hand.high_card.value).to eq(9)
+      expect(hand.high_card.value).to eq(10)
     end
 
     it "chooses the higher suited card" do
@@ -39,5 +39,77 @@ describe Hand do
       expect(high_card_hand.suit).to eq("Spades")
     end
   end
+  let(:cards3) {[
+          Card.new(2, "Hearts"),
+          Card.new(2, "Spades"),
+          Card.new(3, "Spades"),
+          Card.new(3, "Diamonds"),
+          Card.new(3, "Hearts")
+    ]
+  }
+
+  describe "#two of a kind" do
+
+    it "returns true if there is 1 pair" do
+      expect(Hand.new(cards3).two_of_a_kind?).to be(true)
+    end
+    it "returns false if there is no 1 pair" do
+      expect(Hand.new(cards).two_of_a_kind?).to be(false)
+    end
+
+  end
+
+  describe "#three of a kind" do
+
+    it "returns true if there are 3 of a kind" do
+      expect(Hand.new(cards3).three_of_a_kind?).to be(true)
+    end
+    it "returns false if there are no 3 of a kind" do
+      expect(Hand.new(cards).three_of_a_kind?).to be(false)
+    end
+
+  end
+
+  describe "#full_house" do
+
+    it "returns true if there is a full house" do
+      expect(Hand.new(cards3).full_house?).to be(true)
+    end
+    it "returns false if there is no full_house" do
+      expect(Hand.new(cards).full_house?).to be(false)
+    end
+
+  end
+
+
+  let(:cards4) {[
+          Card.new(2, "Hearts"),
+          Card.new(3, "Clubs"),
+          Card.new(3, "Spades"),
+          Card.new(3, "Diamonds"),
+          Card.new(3, "Hearts")
+    ]
+  }
+
+  describe "#four of a kind" do
+
+    it "returns false for 1 pair" do
+      expect(Hand.new(cards4).two_of_a_kind?).to be(false)
+    end
+    it "returns false if there is no 4 of a kind" do
+      expect(Hand.new(cards).four_of_a_kind?).to be(false)
+    end
+    it "returns true if there is 4 of a kind" do
+      expect(Hand.new(cards4).four_of_a_kind?).to be(true)
+    end
+  end
+
+
+  # describe "#value_instance_count"
+  #
+  # it "returns a hash of counts of similar instances of the same value" do
+  #   expect(Hand.new(cards).value_instance_count).to eq({7 => 2})
+  #   expect(Hand.new(cards2).value_instance_count).to eq({7 => 2, 3 => 2})
+  # end
 
 end

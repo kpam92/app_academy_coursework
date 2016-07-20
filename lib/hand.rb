@@ -27,4 +27,23 @@ class Hand
     end
   end
 
+  def two_of_a_kind?
+    values = @cards.map{|card| card.value}
+    values.any?{|val| values.count(val) == 2}
+  end
+
+  def three_of_a_kind?
+    values = @cards.map{|card| card.value}
+    values.any?{|val| values.count(val) == 3}
+  end
+
+  def full_house?
+    two_of_a_kind? && three_of_a_kind?
+  end
+
+  def four_of_a_kind?
+    values = @cards.map{|card| card.value}
+    values.any?{|val| values.count(val) == 4}
+  end
+
 end
