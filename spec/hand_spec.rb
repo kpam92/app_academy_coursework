@@ -104,12 +104,38 @@ describe Hand do
     end
   end
 
+  let(:cards5) {[
+          Card.new(2, "Hearts"),
+          Card.new(3, "Hearts"),
+          Card.new(2, "Hearts"),
+          Card.new(3, "Hearts"),
+          Card.new(5, "Hearts")
+    ]
+  }
 
-  # describe "#value_instance_count"
-  #
-  # it "returns a hash of counts of similar instances of the same value" do
-  #   expect(Hand.new(cards).value_instance_count).to eq({7 => 2})
-  #   expect(Hand.new(cards2).value_instance_count).to eq({7 => 2, 3 => 2})
-  # end
+  describe "#two pair" do
+
+    it "returns true for 1 pair" do
+      expect(Hand.new(cards5).two_of_a_kind?).to be(true)
+    end
+    it "returns false if there is no 3 of a kind" do
+      expect(Hand.new(cards5).three_of_a_kind?).to be(false)
+    end
+    it "returns true for two pairs" do
+      expect(Hand.new(cards5).two_pair?).to be(true)
+    end
+  end
+
+  describe "#flush" do
+
+    it "returns true if cards are all of the same suit" do
+      expect(Hand.new(cards5).flush?).to be(true)
+    end
+
+    it "returns false if cards are not all of the same suit" do
+      expect(Hand.new(cards4).flush?).to be(false)
+    end
+
+  end
 
 end
