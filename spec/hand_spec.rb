@@ -138,4 +138,51 @@ describe Hand do
 
   end
 
+  let(:cards6) {[
+          Card.new(10, "Hearts"),
+          Card.new(11, "Hearts"),
+          Card.new(12, "Hearts"),
+          Card.new(13, "Hearts"),
+          Card.new(1, "Hearts")
+    ]
+  }
+  let(:cards7) {[
+          Card.new(1, "Hearts"),
+          Card.new(2, "Hearts"),
+          Card.new(3, "Hearts"),
+          Card.new(4, "Hearts"),
+          Card.new(5, "Hearts")
+    ]
+  }
+
+  let(:cards8) {[
+          Card.new(6, "Hearts"),
+          Card.new(8, "Hearts"),
+          Card.new(4, "Hearts"),
+          Card.new(5, "Hearts"),
+          Card.new(7, "Hearts")
+    ]
+  }
+
+  describe "#straight" do
+
+    it "returns true if all cards are straight" do
+      expect(Hand.new(cards8).straight?).to be(true)
+    end
+
+    it "handles ace correctly" do
+      expect(Hand.new(cards6).straight?).to be(true)
+    end
+
+    it "handles ace correctly" do
+      expect(Hand.new(cards7).straight?).to be(true)
+    end
+
+
+    it "returns false if cards are not in a straight" do
+      expect(Hand.new(cards4).straight?).to be(false)
+    end
+
+  end
+
 end

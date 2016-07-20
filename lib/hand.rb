@@ -48,6 +48,21 @@ class Hand
     suits.uniq.length == 1
   end
 
+  def straight?
+    id = 0
+    all_values = values.sort
+    all_values.sort.each_with_index do |val, idx|
+      break if idx == all_values.length - 2
+      next if val == 1 && all_values[idx+1] == 10
+
+      if val < 13
+        return false unless all_values[idx+1] - val == 1
+      else
+        return false unless all_values[0] == 1
+      end
+    end
+    true
+  end
   private
 
   def values
