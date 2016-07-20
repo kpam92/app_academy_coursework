@@ -32,6 +32,27 @@ describe Deck do
 
   describe "#draw" do
 
+    it "returns an array of card and removes it from all cards" do
+      returned_card = deck.draw
+      # expect(returned_card.is_a?(Card)).to be(true)
+      expect(returned_card).to be_an_instance_of(Array)
+      expect(returned_card[0]).to be_an_instance_of(Card)
+      expect(deck.all_cards.length).to eq (51)
+    end
+
+    it "returns an 4 cards if you pass an argument of 4" do
+      returned_card = deck.draw(4)
+      # expect(returned_card.is_a?(Card)).to be(true)
+      expect(returned_card).to be_an_instance_of(Array)
+      expect(returned_card.length).to eq(4)
+      expect(returned_card[0]).to be_an_instance_of(Card)
+      expect(deck.all_cards.length).to eq (48)
+    end
+
+    it "raises an error if there are no cards left" do
+      returned_card = deck.draw(52)
+      expect {deck.draw}.to raise_error(ArgumentError)
+    end
   end
 
 

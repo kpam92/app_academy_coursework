@@ -21,4 +21,13 @@ class Deck
     @all_cards = @all_cards.shuffle
   end
 
+  def draw(number = 1)
+    draw_cards = []
+    raise ArgumentError if number > @all_cards.length
+    number.times do
+      draw_cards << @all_cards.pop
+    end
+    draw_cards
+  end
+
 end
