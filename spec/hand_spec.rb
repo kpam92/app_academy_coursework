@@ -149,7 +149,7 @@ describe Hand do
   let(:cards7) {[
           Card.new(1, "Hearts"),
           Card.new(2, "Hearts"),
-          Card.new(3, "Hearts"),
+          Card.new(3, "Spades"),
           Card.new(4, "Hearts"),
           Card.new(5, "Hearts")
     ]
@@ -181,6 +181,22 @@ describe Hand do
 
     it "returns false if cards are not in a straight" do
       expect(Hand.new(cards4).straight?).to be(false)
+    end
+
+  end
+
+  describe "#straight_flush" do
+
+    it "returns true if all cards are straight_flush" do
+      expect(Hand.new(cards8).straight_flush?).to be(true)
+    end
+
+    it "returns false if straight but not flush" do
+      expect(Hand.new(cards7).straight_flush?).to be(false)
+    end
+
+    it "returns false if flush but not straight" do
+      expect(Hand.new(cards5).straight_flush?).to be(false)
     end
 
   end

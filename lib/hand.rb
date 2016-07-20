@@ -44,6 +44,10 @@ class Hand
     values.uniq.length == 3
   end
 
+  def straight_flush?
+    flush? && straight?
+  end
+
   def flush?
     suits.uniq.length == 1
   end
