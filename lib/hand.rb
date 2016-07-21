@@ -32,6 +32,19 @@ class Hand
     max
   end
 
+  def compare_high_card(other_hand)
+    self_high_card = self.high_card
+    other_high_card = other_hand.high_card
+    if self_high_card.value > other_high_card.value
+      return "Current hand wins"
+    elsif other_high_card.value > self_high_card.value
+      return "Other hand wins"
+    else
+      return "Current hand wins" unless suit_trumps(self_high_card, other_high_card)
+    end
+    return "Other hand wins"
+  end
+
   def compare_hand(other_hand)
     other_hand_score = other_hand.score
     our_score = self.score
@@ -41,10 +54,35 @@ class Hand
       elsif !our_score[key] && other_hand_score[key]
         return "Other hand wins"
       elsif our_score[key] && other_hand_score[key]
-        # diff_func
+        return tie_breaker(other_hand,key)
       end
     end
   end
+
+  def tie_breaker(other_hand, key)
+    if key == "straight_flush"
+      compare_straight_flush(other_hand)
+    elsif key == "four of a kind"
+      compare_four_of_a_kind(other_hand)
+    elsif key == "full house"
+      compare_full_house(other_hand)
+    elsif key == "flush"
+      compare_flush(other_hand)
+    elsif key == "straight"
+      compare_straight(other_hand)
+    elsif key == "three of a kind"
+      compare_three_of_kind(other_hand)
+    elsif key == "two pair"
+      compare_two_pair(other_hand)
+    elsif key == "one pair"
+      compare_one_pair(other_hand)
+    elsif key == "high card"
+      compare_high_card(other_hand)
+    end
+    # return "Current hand wins" if njnlkasnjksad
+    # return "Other hand wins" if sf;ls;a #return true if we win against other hand
+  end
+
 
   def two_of_a_kind?
     values = @cards.map{|card| card.value}
