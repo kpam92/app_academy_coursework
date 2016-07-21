@@ -1,11 +1,24 @@
 require 'card'
-
 class Hand
   attr_reader :cards
   def initialize(array)
     @cards = array
   end
 
+  HAND_RANKING = ["straight flush", "four of a kind", "full house", "flush", "straight", "three of a kind", "two pair", "one pair", "high card"]
+  def score
+    score_hash = {
+      "straight flush" => self.straight_flush?,
+      "four of a kind" => self.four_of_a_kind?,
+      "full house" => self.full_house?,
+      "flush" => self.flush?,
+      "straight" => self.straight?,
+      "three of a kind" => self.three_of_a_kind?,
+      "two pair" => self.two_pair?,
+      "one pair" => self.two_of_a_kind?,
+      "high card" => self.high_card
+    }
+  end
 
   def high_card
     max = @cards[0]
@@ -19,7 +32,19 @@ class Hand
     max
   end
 
-
+  def compare_hand(other_hand)
+    other_hand_score = other_hand.score
+    our_score = self.score
+    HAND_RANKING.each do |key|
+      if our_score[key] && !other_hand_score[key]
+        return "Current hand wins"
+      elsif !our_score[key] && other_hand_score[key]
+        return "Other hand wins"
+      elsif our_score[key] && other_hand_score[key]
+        # diff_func
+      end
+    end
+  end
 
   def two_of_a_kind?
     values = @cards.map{|card| card.value}

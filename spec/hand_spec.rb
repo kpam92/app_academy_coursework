@@ -201,4 +201,33 @@ describe Hand do
 
   end
 
+
+
+
+  let(:cards_compare1) {[
+          Card.new(1, "Hearts"),
+          Card.new(2, "Hearts"),
+          Card.new(3, "Spades"),
+          Card.new(4, "Hearts"),
+          Card.new(5, "Hearts")
+    ]
+  }
+
+  let(:cards_compare2) {[
+          Card.new(6, "Hearts"),
+          Card.new(8, "Hearts"),
+          Card.new(4, "Hearts"),
+          Card.new(5, "Spades"),
+          Card.new(7, "Hearts")
+    ]
+  }
+  let(:compare_hand1) {Hand.new(cards_compare1)}
+  let(:compare_hand2) {Hand.new(cards_compare2)}
+  describe "#compare_hand function" do
+    it "compares 2 hands" do
+      expect(compare_hand1.compare_hand(compare_hand2)).to eq("Other hand wins")
+    end
+
+  end
+
 end
