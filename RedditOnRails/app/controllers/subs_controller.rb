@@ -1,4 +1,5 @@
 class SubsController < ApplicationController
+  before_action :is_moderator?
 
   def new
     @sub = Sub.new
@@ -9,6 +10,8 @@ class SubsController < ApplicationController
     @subs = Sub.all
     render :index
   end
+
+
 
   def create
     @sub = Sub.new(sub_params)
@@ -25,13 +28,14 @@ class SubsController < ApplicationController
   end
 
   def edit
-    @sub = Sub.find_by(sub_params)
+    @sub = Sub.find_by(id: params[:id])
     render :edit
   end
 
   def update
-    @sub = Sub.find_by(sub_params)
-    if @sub.update
+
+    @sub = Sub.find_by(id: params[:id])
+    if @sub.update_attributes(sub_params)
       redirect_to sub_url(@sub)
     else
       redirect_to edit_sub_url(@sub)
@@ -46,6 +50,13 @@ class SubsController < ApplicationController
   private
   def sub_params
     params.require(:sub).permit(:title, :description, :moderator_id)
+  end
+
+  def is_moderator?
+    if @sub
+      @sub = Sub.find_by(id: params[:id])
+      @sub.moderator_id == current_user.id
+    end
   end
 
 end

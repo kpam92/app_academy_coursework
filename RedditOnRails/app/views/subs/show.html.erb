@@ -1,1 +1,12 @@
 <h1> <%= @sub.title %> by <%= @sub.moderator.username %> </h1>
+<br>
+<h2> <%= @sub.description %> </h2>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+  <li> <%= link_to "#{post.title}", post_url(post), method: :get %>  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit #{@sub.title}", edit_sub_url(@sub), method: :get %>
+<%= button_to "Make New Post", new_sub_post_url(@sub), method: :get %>
