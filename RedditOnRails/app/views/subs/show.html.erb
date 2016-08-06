@@ -6,6 +6,10 @@
   <% @sub.posts.each do |post| %>
   <li> <%= link_to "#{post.title}", post_url(post), method: :get %>  </li>
   <% end %>
+
+  <% @sub.post_subs.each do |postsub| %>
+    <li>  <%= link_to "#{postsub.title}", post_url(postsub), method: :get %> </li>
+  <% end %>
 </ul>
 
 <%= link_to "Edit #{@sub.title}", edit_sub_url(@sub), method: :get %>

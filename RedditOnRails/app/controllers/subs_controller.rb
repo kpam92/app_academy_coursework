@@ -8,6 +8,7 @@ class SubsController < ApplicationController
 
   def index
     @subs = Sub.all
+    # fail
     render :index
   end
 
@@ -44,6 +45,7 @@ class SubsController < ApplicationController
 
   def show
     @sub = Sub.find_by(id: params[:id])
+    fail
     render :show
   end
 

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @subs = Sub.all
     # fail
     render :new
   end
@@ -20,6 +21,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(title: params[:post][:title], content: params[:post][:content], author_id: params[:post][:author_id], sub_id: params[:sub_id], url: "#")
+    # fail
+    #
     if @post.save
       # redirect_to subs_url
       redirect_to post_url(@post)

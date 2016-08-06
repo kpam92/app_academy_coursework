@@ -7,4 +7,6 @@ class Sub < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :post_subs, as: :postable
+
 end
