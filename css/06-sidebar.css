@@ -40,11 +40,19 @@
   position: absolute;
   font-size: 12px;
   padding: 5px;
-  transform: translate(-50%, -35px);
+  transform: translate(-50%, -32px);
   left: 50%;
 }
 
-.thumb:after {
+.thumb:hover:after {
   /*content: attr(title);*/
+  content: "";
+  border-top: 10px black solid;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 61px;
+  position: absolute;
 
 }
