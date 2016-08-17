@@ -25,14 +25,14 @@
 
 .content-sidebar {
   min-height: 200px;
-  width: 199px;
+  width: 200px;
   float: left;
   padding: 20px;
 }
 
 .content-main {
   min-height: 200px;
-  width: 619px;
+  width: 620px;
   float: left;
   padding: 20px;
 }
