@@ -121,6 +121,11 @@
 	    });
 	    el.className = result.join("-");
 	  }
+
+	  children() {
+	    let node = this.htmlElements[0];
+	    return node.children;
+	  }
 	}
 
 	module.exports = DOMNodeCollection;
