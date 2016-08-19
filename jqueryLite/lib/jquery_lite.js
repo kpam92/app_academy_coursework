@@ -100,12 +100,27 @@
 	  }
 
 	  addClass(klass) {
-	    if (this.htmlElements[0].className === "") {
-	      
+	    klass = klass.split(' ').join("-");
+	    let el = this.htmlElements[0];
+	    if (el.className === "") {
+	      el.className = klass;
+	    } else {
+	      el.className = [el.className, klass].join('-');
 	    }
+
 	  }
 
-	  removeClass(klass) {}
+	  removeClass(klass) {
+	    let el = this.htmlElements[0];
+	    let elKlass = el.className.split('-');
+	    let result = [];
+	    elKlass.forEach(element => {
+	      if (klass !== element) {
+	        result.push(element);
+	      }
+	    });
+	    el.className = result.join("-");
+	  }
 	}
 
 	module.exports = DOMNodeCollection;
