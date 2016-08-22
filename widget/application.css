@@ -1,0 +1,13 @@
+/*.tabs {
+  display: block;;
+  height:240px;
+  width: 200px;
+  border: 1px black solid;
+  background: green;
+}
+.tabs ul{
+  display: relative;
+}
+li{
+  float: right;
+}*/
