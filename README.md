@@ -1,15 +1,15 @@
-## Sinuous Game
+## Serpentine
 
 ### Background
 
-Sinuous is a javascript based game where the player uses the mouse to guide a a small shape around a maze of small asteroids coming in a linear fashion from the top right corner.  
+Serpentine is a javascript based game where the player uses the mouse to guide a a small shape around a maze of small asteroids coming in a linear fashion from the top right corner.  
 
 ### Functionality & MVP  
 
-With this Conway's Game of Life simulator, users will be able to:
+With this game, users will be able to:
 
 - [ ] move around the canvas with their mouse trying to avoid obstacles.
-- [ ] Power ups will show up every x amount of frames.
+- [ ] Colliding with asteroids ends the game.
 - [ ] Visually, a trail will snake behind the user's shape.
 - [ ] A scoreboard will be present in the top left corner
 
