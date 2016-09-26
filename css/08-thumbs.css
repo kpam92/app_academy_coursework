@@ -1,0 +1,25 @@
+/* PHASE 8: Thumbs */
+.friends-list li:nth-child(3n) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.friends-list li{
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-top: 10px;
+}
+
+.thumb {
+  display: block;
+  width: 58px;
+  height: 58px;
+  float: left;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.friends-list{
+  margin-top: 10px;
+}

@@ -1,0 +1,58 @@
+/* PHASE 6: Sidebar */
+.profile-picture a {
+  border: 1px #000 solid;
+  border-radius: 5px;
+  display: block;
+  box-shadow: 10px 10px 20px rgba(0,0,0, .3);
+  position: relative;
+  margin-top: -120px;
+  overflow: hidden;
+}
+
+.profile-info h4{
+  font-size: 24px;
+  font-weight: 700;
+}
+.profile-nav .profile-nav-links li {
+  font-weight: 700;
+  border-top: 1px solid #ccc;
+  padding: 5px 0;
+}
+
+.profile-nav-links {
+  padding-top: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.profile-nav .profile-nav-links li:hover {
+  background: #eee;
+}
+.thumb {
+  display: block;
+  position: relative;
+}
+.thumb:hover:before {
+  content: "";
+  content: attr(title);
+  color: #fff;
+  background: #000;
+  border-radius: 5px;
+  position: absolute;
+  font-size: 12px;
+  padding: 5px;
+  transform: translate(-50%, -32px);
+  left: 50%;
+}
+
+.thumb:hover:after {
+  /*content: attr(title);*/
+  content: "";
+  border-top: 10px black solid;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 61px;
+  position: absolute;
+
+}
