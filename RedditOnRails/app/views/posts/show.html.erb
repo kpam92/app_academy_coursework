@@ -1,0 +1,9 @@
+<h1> <%=@post.title%>  </h1>
+<br>
+<br>
+<p>
+<%= @post.content%>
+</p>
+
+<%= button_to "Edit #{@post.title}", edit_sub_post_url(@post.sub.id, @post.id), method: :get %>
+<%= button_to "Back to #{@post.sub.title}", sub_url(@post.sub.id), method: :get %>

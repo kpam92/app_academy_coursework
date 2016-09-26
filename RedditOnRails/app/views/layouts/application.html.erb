@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditOnRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+
+  <%= link_to "Create a new sub", new_sub_url, method: :get %>
+  <br>
+  <%= link_to "Back to All Subs", subs_url, method: :get %>
+
+</head>
+<br>
+<%= flash[:errors] %>
+<%= flash[:error] %>
+
+<body>
+
+
+<%= yield %>
+
+</body>
+<footer>
+  <p>--------------------------------------------</p>
+<br>
+ <% if logged_in? %>
+    <%= button_to "log out", "/session", method: :delete %>
+    <% else %>
+      <%= button_to "log in", new_session_url, method: :get %>
+  <% end %>
+</footer>
+</html>
