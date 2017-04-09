@@ -24,6 +24,11 @@ class Company < ActiveRecord::Base
   through: :watch_list_items,
   source: :watch_list
 
+  has_many :watchers,
+  through: :watch_lists,
+  source: :watcher
+
+
 
 
 
