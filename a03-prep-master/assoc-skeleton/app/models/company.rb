@@ -9,4 +9,9 @@ class Company < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :exchange_id,
   class_name: "Exchange"
+
+  has_many :prices,
+  primary_key: :id,
+  foreign_key: :company_id,
+  class_name: "Price"
 end
