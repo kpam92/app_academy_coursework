@@ -5,6 +5,10 @@ class Board < ActiveRecord::Base
   foreign_key: :board_id,
   class_name: "BoardMembership"
 
+  has_many :members,
+  through: :memberships,
+  source: :member
+
   belongs_to :company,
   primary_key: :id,
   foreign_key: :company_id,
