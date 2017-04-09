@@ -13,4 +13,8 @@ class Board < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :company_id,
   class_name: "Company"
+
+  has_one :exchange,
+  through: :company,
+  source: :exchange
 end
