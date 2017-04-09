@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
 
-  has_many :boards,
+  has_one :board,
   primary_key: :id,
   foreign_key: :company_id,
   class_name: "Board"
@@ -27,6 +27,9 @@ class Company < ActiveRecord::Base
   has_many :watchers,
   through: :watch_lists,
   source: :watcher
+
+
+
 
 
 
